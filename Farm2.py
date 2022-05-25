@@ -11,17 +11,16 @@ class Animal:
             print(f'{self.type} {self.name} сытый(а)')
 
 
-
 class Goose(Animal):
 
-    def __init__(self, name, weight, type='Гусь', voice='Га-га-га'):
+    def __init__(self, name, weight):
         self.name = name
         self.weight = weight
-        self.voice = voice
-        self.type = type
+        self.voice = 'Га-га-га'
+        self.type = 'Гусь'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
-
+        animals.append(self)
 
     def getting_eggs(self):
         if 0 < self.mood <= 5:
@@ -31,16 +30,16 @@ class Goose(Animal):
             print(f'Яиц у Гуся {self.name} больше нет, пора его кормить !')
 
 
-
 class Cow(Animal):
 
-    def __init__(self, name, weight, type='Корова', voice='Му-Му'):
-         self.name = name
-         self.weight = weight
-         self.voice = voice
-         self.type = type
-         self.mood = 5
-         print(f'Я {self.type} {self.name}, {self.voice}')
+    def __init__(self, name, weight):
+        self.name = name
+        self.weight = weight
+        self.voice = 'Му-Му'
+        self.type = 'Корова'
+        self.mood = 5
+        print(f'Я {self.type} {self.name}, {self.voice}')
+        animals.append(self)
 
     def milking(self):
         if 0 < self.mood <= 5:
@@ -52,14 +51,14 @@ class Cow(Animal):
 
 class Sheep(Animal):
 
-    def __init__(self, name, weight, type='Овца', voice='Бее-бее'):
+    def __init__(self, name, weight):
         self.name = name
         self.weight = weight
-        self.voice = voice
-        self.type = type
+        self.voice = 'Бее-бее'
+        self.type = 'Овца'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
-
+        animals.append(self)
 
     def shaving(self):
         if 0 < self.mood <= 5:
@@ -71,13 +70,14 @@ class Sheep(Animal):
 
 class Goat(Animal):
 
-    def __init__(self, name, weight, type='Коза', voice='Мее-Мее'):
+    def __init__(self, name, weight):
         self.name = name
         self.weight = weight
-        self.voice = voice
-        self.type = type
+        self.voice = 'Мее-Мее'
+        self.type = 'Коза'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
+        animals.append(self)
 
     def milking(self):
         if 0 < self.mood <= 5:
@@ -87,14 +87,15 @@ class Goat(Animal):
             print(f'Доить Козу {self.name} бесполезно, пора ее кормить !')
 
 
-class Hens:
-    def __init__(self, name, weight, type='Курица', voice='Ко-ко-ко'):
+class Hens(Animal):
+    def __init__(self, name, weight):
         self.name = name
         self.weight = weight
-        self.voice = voice
-        self.type = type
+        self.voice = 'Ко-ко-ко'
+        self.type = 'Курица'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
+        animals.append(self)
 
     def getting_eggs(self):
         if 0 < self.mood <= 5:
@@ -106,13 +107,14 @@ class Hens:
 
 class Duck(Animal):
 
-    def __init__(self, name, weight, type='Утка', voice='Кря-кря'):
+    def __init__(self, name, weight):
         self.name = name
         self.weight = weight
-        self.voice = voice
-        self.type = type
+        self.voice = 'Кря-кря'
+        self.type = 'Утка'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
+        animals.append(self)
 
     def getting_eggs(self):
         if 0 < self.mood <= 5:
@@ -121,87 +123,39 @@ class Duck(Animal):
         else:
             print(f'Яиц у Утки {self.name} больше нет, пора ее кормить !')
 
-#
-# def animal_weight(animal_dict):
-#     result_weight = 0
-#     for animal in animal_dict.values():
-#         result_weight += animal
-#     return result_weight
-#
-#
-# def biggest_animal(animal_dict):
-#     max_weight = 0
-#     name = ''
-#     for name_animal, weight in animal_dict.items():
-#         if weight > max_weight:
-#             max_weight = weight
-#             name = name_animal
-#     return name
-#
+
+def animal_weight(animals):
+    result_weight = 0
+    for animal in animals:
+        result_weight += animal.weight
+    return result_weight
+
+
+def biggest_animal(animals):
+    max_weight = 0
+    name = ''
+    for animal in animals:
+        if animal.weight > max_weight:
+            max_weight = animal.weight
+            name = animal.name
+    return name
+
 
 animals = []
 seryi = Goose('Серый', 15)
-animals.append(seryi)
 belyi = Goose('Белый', 10)
-animals.append(belyi)
 manka = Cow('Манька', 180)
-animals.append(manka)
 barashek = Sheep('Барашек', 60)
-animals.append(barashek)
+kudryaviy = Sheep('Кудрявый', 57)
+koko = Hens('Коко', 2)
+kukareku = Hens('Кукареку', 2)
+roga = Goat('Рога', 25)
+kopita = Goat('Копыта', 26)
+kryakva = Duck('Кряква', 7)
 
-# first_sheep = Sheeps('Барашек', 60)
-# animals[first_sheep.name] = first_sheep.weight
-# second_sheep = Sheeps('Кудрявый', 57)
-# animals[second_sheep.name] = second_sheep.weight
-# first_hen = Hens('Коко', 2)
-# animals[first_hen.name] = first_hen.weight
-# second_hen = Hens('Кукареку', 2)
-# animals[second_hen.name] = second_hen.weight
-# first_goat = Goats('Рога', 25)
-# animals[first_goat.name] = first_goat.weight
-# second_goat = Goats('Копыта', 26)
-# animals[second_goat.name] = second_goat.weight
-# first_duck = Ducks('Кряква', 7)
-# animals[first_duck.name] = first_duck.weight
-#
-# first_goose.feeding()
-# first_goose.getting_eggs()
-# first_goose.getting_eggs()
-# first_goose.getting_eggs()
-# first_goose.getting_eggs()
-# first_goose.getting_eggs()
-# first_goose.getting_eggs()
-# first_goose.getting_eggs()
-# first_goose.feeding()
-# first_goose.feeding()
-# first_goose.feeding()
-# first_goose.feeding()
-# first_goose.feeding()
-# first_goose.feeding()
-#
-# second_goose.feeding()
-# second_goose.getting_eggs()
-# first_cow.feeding()
-# first_cow.milking()
-# first_sheep.feeding()
-# first_sheep.shaving()
-# second_sheep.feeding()
-# second_sheep.shaving()
-# first_hen.feeding()
-# first_hen.getting_eggs()
-# second_hen.feeding()
-# second_hen.getting_eggs()
-# first_goat.feeding()
-# first_goat.milking()
-# second_goat.feeding()
-# second_goat.milking()
-# first_duck.feeding()
-# first_duck.getting_eggs()
-#
-# print(f'Общий вес животных {animal_weight(animals)}')
+print(f'Общий вес животных {animal_weight(animals)}')
+print(f'Самое тяжелое животное зовут {biggest_animal(animals)}')
+
 for animal in animals:
     animal.feeding()
     animal.listen_to_the_voice()
-
-
-
