@@ -37,11 +37,7 @@ def get_file(foldername, subbreeds):
             data = requests.get(url).json()['message']
             data1 = requests.get(data)
             file.write(data1.content)
-        #     while subbreed not in res_random:
-        #         res_random = requests.get(url_random_request)
-        #         continue
-        #     else:
-        #         file.write(res_random.content)
+
 
 
 res_all = requests.get('https://dog.ceo/api/breeds/list/all')
