@@ -12,15 +12,14 @@ class Animal:
 
 
 class Goose(Animal):
+    voice = 'Га-га-га'
+    type = 'Гусь'
 
     def __init__(self, name, weight):
         self.name = name
         self.weight = weight
-        self.voice = 'Га-га-га'
-        self.type = 'Гусь'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
-        animals.append(self)
 
     def getting_eggs(self):
         if 0 < self.mood <= 5:
@@ -39,7 +38,6 @@ class Cow(Animal):
         self.type = 'Корова'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
-        animals.append(self)
 
     def milking(self):
         if 0 < self.mood <= 5:
@@ -58,7 +56,6 @@ class Sheep(Animal):
         self.type = 'Овца'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
-        animals.append(self)
 
     def shaving(self):
         if 0 < self.mood <= 5:
@@ -77,7 +74,6 @@ class Goat(Animal):
         self.type = 'Коза'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
-        animals.append(self)
 
     def milking(self):
         if 0 < self.mood <= 5:
@@ -95,7 +91,7 @@ class Hens(Animal):
         self.type = 'Курица'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
-        animals.append(self)
+
 
     def getting_eggs(self):
         if 0 < self.mood <= 5:
@@ -114,7 +110,6 @@ class Duck(Animal):
         self.type = 'Утка'
         self.mood = 5
         print(f'Я {self.type} {self.name}, {self.voice}')
-        animals.append(self)
 
     def getting_eggs(self):
         if 0 < self.mood <= 5:
@@ -141,7 +136,6 @@ def biggest_animal(animals):
     return name
 
 
-animals = []
 seryi = Goose('Серый', 15)
 belyi = Goose('Белый', 10)
 manka = Cow('Манька', 180)
@@ -152,7 +146,7 @@ kukareku = Hens('Кукареку', 2)
 roga = Goat('Рога', 25)
 kopita = Goat('Копыта', 26)
 kryakva = Duck('Кряква', 7)
-
+animals = [seryi, belyi, manka, barashek, kudryaviy, koko, kukareku, roga, kopita, kryakva]
 print(f'Общий вес животных {animal_weight(animals)}')
 print(f'Самое тяжелое животное зовут {biggest_animal(animals)}')
 
