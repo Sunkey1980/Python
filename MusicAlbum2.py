@@ -6,11 +6,13 @@ class Album:
         self.track_list = []
 
     def __str__(self):
-
+        s = ''
+        for track in self.track_list:
+            s += '\n       ' + str(track)
         return f'Name group: {self.artist} ' \
                f'\nName album: {self.title}' \
                f'\nTracks:' \
-               f'\n       {self.track_list}'
+               f'{s}'
 
     def get_tracks(self):
         for track in self.track_list:
