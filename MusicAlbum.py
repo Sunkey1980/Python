@@ -18,18 +18,19 @@ class Album:
     def __init__(self, title, artist):
         self.title = title
         self.artist = artist
-        self.track_list = {}
+        self.track_list = []
 
     def get_tracks(self):
-        print(self.track_list)
+        for track in self.track_list:
+            track.show()
 
     def add_track(self, track):
-        self.track_list[track.title] = track.duration
+        self.track_list.append(track)
 
     def get_duration(self):
         result_duration = 0
-        for duration in self.track_list.values():
-            result_duration += duration
+        for track in self.track_list:
+            result_duration += track.duration
         print(result_duration)
 
 
@@ -42,13 +43,14 @@ class Track:
     def show(self):
         print(f'<{self.title}-{self.duration}>')
 
+
 first_album = Album('First', 'Gitarrrist')
 tr1 = Track('Good', 2)
-tr1.show()
+# tr1.show()
 tr2 = Track('Better', 4)
-tr2.show()
+# tr2.show()
 tr3 = Track('Best', 9)
-tr3.show()
+# tr3.show()
 first_album.add_track(tr1)
 first_album.add_track(tr2)
 first_album.add_track(tr3)
@@ -56,14 +58,15 @@ first_album.get_tracks()
 first_album.get_duration()
 second_album = Album('Oak', 'Druum IT!')
 tr4 = Track('God', 18)
-tr4.show()
+# tr4.show()
 tr5 = Track('Litter', 14)
-tr5.show()
+# tr5.show()
 tr6 = Track('Beast', 28)
-tr6.show()
-first_album.add_track(tr4)
-first_album.add_track(tr5)
-first_album.add_track(tr6)
+# tr6.show()
+second_album.add_track(tr4)
+second_album.add_track(tr5)
+second_album.add_track(tr6)
 
-first_album.get_tracks()
-first_album.get_duration()
+second_album.get_tracks()
+second_album.get_duration()
+
