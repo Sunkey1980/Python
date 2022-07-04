@@ -2,8 +2,12 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime, Foreign
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+postgrees_password = "38gjgeuftd"  # input('YOUR POSTGREE PASSWORD, PLEASE')
+engine = create_engine(f'postgresql+psycopg2://postgres:{postgrees_password}@localhost:5432/ORM', echo=True,
+                       future=True)
 
 DeclarativeBase = declarative_base()
+
 
 class Publisher(DeclarativeBase):
     __tablename__ = 'publisher'
@@ -61,11 +65,9 @@ class Sale(DeclarativeBase):
         return "".format(self.code)
 
 
+DeclarativeBase.metadata.create_all(engine)
+
 def main():
-    postgrees_password = "38gjgeuftd"  # input('YOUR POSTGREE PASSWORD, PLEASE')
-    # engine = create_engine(f'postgres://postgres:{postgrees_password}@localhost:5432/ORM', echo=True, future=True)
-    engine = create_engine(f'postgresql+psycopg2://postgres:{postgrees_password}@localhost:5432/ORM', echo=True, future=True)
-    DeclarativeBase.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
     input_publisher = input("Input publisher or it's id: ")
